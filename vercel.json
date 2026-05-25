@@ -1,0 +1,25 @@
+{
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "env": [
+    {
+      "key": "NEXT_PUBLIC_APP_NAME",
+      "value": "Kennis Wiser Consulting"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "destination": "/api/robots"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/#services",
+      "permanent": false
+    }
+  ]
+}
