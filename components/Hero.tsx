@@ -1,7 +1,5 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
-
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 md:px-12 py-20 overflow-hidden">
@@ -35,7 +33,7 @@ export default function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
           <button className="btn-primary">
-            Explore Our Approach <ArrowRight className="w-5 h-5" />
+            Explore Our Approach →
           </button>
           <button className="btn-secondary">
             Schedule a Consultation
