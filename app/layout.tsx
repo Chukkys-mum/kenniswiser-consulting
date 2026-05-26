@@ -30,15 +30,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
         <link rel="icon" href="/favicon-64x64.png" sizes="64x64" type="image/png" />
         <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+        {/* Set theme before paint to avoid FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('kw-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()`,
+          }}
+        />
       </head>
-      <body className="bg-gradient-to-b from-primary-900 via-dark to-primary-900 text-gray-100">
+      <body className="text-gray-100">
         <Navbar />
         <main className="min-h-screen">
           {children}

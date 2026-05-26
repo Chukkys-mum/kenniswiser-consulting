@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 interface NavLink {
   label: string;
@@ -139,8 +140,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right side: CTA + mobile toggle */}
+        {/* Right side: theme toggle + CTA + mobile toggle */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/contact"
             className="hidden sm:inline-flex btn-secondary"

@@ -4,10 +4,16 @@ interface PageHeroProps {
   subtitle?: string;
 }
 
+/**
+ * Hero band that always stays dark — same convention as Kennis Capital
+ * (hero / navbar / footer don't swap themes, only content sections do).
+ */
 export default function PageHero({ label, title, subtitle }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden pt-20 pb-24 px-6 md:px-12 border-b border-primary-700/20">
-      {/* Background gradient orbs */}
+    <section
+      className="relative overflow-hidden pt-20 pb-24 px-6 md:px-12 border-b border-primary-700/20"
+      style={{ background: 'linear-gradient(135deg, #1a1a3e 0%, #0f0f1e 50%, #1a1a3e 100%)' }}
+    >
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-700/10 rounded-full blur-3xl -z-10" />
 

@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Theme tokens
+ *
+ * Same pattern as Kennis Capital: CSS custom properties on `:root` (light
+ * defaults) get overridden when `<html data-theme="dark">` is set. The
+ * always-dark surfaces (navbar, hero, footer) read the dark-only tokens
+ * directly so they stay dark in either mode.
+ *
+ * Storage key: `kw-theme` ('dark' | 'light'). Default is dark on first visit.
+ * ───
+ */
+
+:root {
+  /* Light mode defaults — light content sections, dark accents */
+  --kw-bg-page: #f5f5f7;
+  --kw-bg-elevated: #ffffff;
+  --kw-bg-section: #fafafa;
+  --kw-text-heading: #0f0f1e;
+  --kw-text-body: #3a3a3a;
+  --kw-text-muted: #6b6b6b;
+  --kw-border: rgba(15, 15, 30, 0.08);
+  --kw-tile-bg: rgba(15, 15, 30, 0.03);
+  --kw-tile-border: rgba(15, 15, 30, 0.08);
+  --kw-tile-border-hover: rgba(124, 58, 237, 0.3);
+}
+
+[data-theme="dark"] {
+  /* Dark mode — page is the dark gradient, content sections inherit it */
+  --kw-bg-page: transparent;
+  --kw-bg-elevated: rgba(255, 255, 255, 0.02);
+  --kw-bg-section: rgba(15, 15, 30, 0.4);
+  --kw-text-heading: #ffffff;
+  --kw-text-body: #d1d5db;
+  --kw-text-muted: #9ca3af;
+  --kw-border: rgba(255, 255, 255, 0.08);
+  --kw-tile-bg: rgba(255, 255, 255, 0.02);
+  --kw-tile-border: rgba(255, 255, 255, 0.08);
+  --kw-tile-border-hover: rgba(124, 58, 237, 0.3);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,14 +52,20 @@ html {
 }
 
 body {
+  /* In dark mode (default) we keep the gradient backdrop.
+     In light mode we use a solid clean light page. */
   background: linear-gradient(135deg, #1a1a3e 0%, #0f0f1e 50%, #1a1a3e 100%);
-  color: #f5f5f5;
+  color: var(--kw-text-heading);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accent color utilities */
+html:not([data-theme="dark"]) body {
+  background: var(--kw-bg-page);
+}
+
+/* Accent color utilities (theme-independent — brand purple) */
 .text-accent {
   color: #7c3aed;
 }
@@ -39,11 +84,25 @@ body {
 }
 
 .btn-secondary {
-  @apply px-6 py-3 border-2 border-gray-600 text-gray-100 font-semibold rounded-lg hover:border-accent hover:text-accent transition-all duration-300 inline-flex items-center gap-2;
+  @apply px-6 py-3 border-2 font-semibold rounded-lg transition-all duration-300 inline-flex items-center gap-2;
+  border-color: var(--kw-border);
+  color: var(--kw-text-body);
 }
 
-/* Text gradient */
+.btn-secondary:hover {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+/* Text gradient (always the brand colors regardless of theme) */
 .text-gradient {
+  background: linear-gradient(135deg, #7c3aed 0%, #6145ed 50%, #2ad0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="dark"] .text-gradient {
   background: linear-gradient(135deg, #ffffff 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -60,19 +119,73 @@ body {
 }
 
 .section-subtitle {
-  @apply text-lg text-gray-300 max-w-2xl;
+  @apply text-lg max-w-2xl;
+  color: var(--kw-text-body);
 }
+
+/* Themed text utilities — use these in pages so they auto-swap on toggle */
+.kw-text-heading { color: var(--kw-text-heading); }
+.kw-text-body { color: var(--kw-text-body); }
+.kw-text-muted { color: var(--kw-text-muted); }
+.kw-bg-section { background-color: var(--kw-bg-section); }
+.kw-bg-elevated { background-color: var(--kw-bg-elevated); }
+.kw-tile {
+  background-color: var(--kw-tile-bg);
+  border-color: var(--kw-tile-border);
+}
+.kw-tile:hover {
+  border-color: var(--kw-tile-border-hover);
+}
+
+/* ─── Light-mode overrides scoped to content sections ───
+ *
+ * Pages are authored with dark-mode utility classes (`text-white`,
+ * `text-gray-300`, `bg-white/[0.02]`, `border-white/[0.08]`). The hero,
+ * navbar, footer, and KORA widget always stay dark. PageSection (and
+ * anything tagged `.kw-page-section`) is the themeable surface — when
+ * `<html data-theme="light">`, we re-color the existing utility classes
+ * inside it.
+ */
+html:not([data-theme="dark"]) .kw-page-section h1,
+html:not([data-theme="dark"]) .kw-page-section h2,
+html:not([data-theme="dark"]) .kw-page-section h3,
+html:not([data-theme="dark"]) .kw-page-section h4 {
+  color: var(--kw-text-heading);
+}
+
+html:not([data-theme="dark"]) .kw-page-section .text-white {
+  color: var(--kw-text-heading);
+}
+
+html:not([data-theme="dark"]) .kw-page-section .text-gray-300,
+html:not([data-theme="dark"]) .kw-page-section p {
+  color: var(--kw-text-body);
+}
+
+html:not([data-theme="dark"]) .kw-page-section .text-gray-400,
+html:not([data-theme="dark"]) .kw-page-section .text-gray-500 {
+  color: var(--kw-text-muted);
+}
+
+/* Tile / card surfaces */
+html:not([data-theme="dark"]) .kw-page-section [class*="bg-white/[0.02]"],
+html:not([data-theme="dark"]) .kw-page-section [class*="bg-white/[0.03]"],
+html:not([data-theme="dark"]) .kw-page-section [class*="bg-white/[0.04]"] {
+  background-color: var(--kw-tile-bg);
+}
+
+html:not([data-theme="dark"]) .kw-page-section [class*="border-white/[0.08]"],
+html:not([data-theme="dark"]) .kw-page-section [class*="border-white/10"],
+html:not([data-theme="dark"]) .kw-page-section [class*="border-white/[0.06]"] {
+  border-color: var(--kw-tile-border);
+}
+
+/* The accent purple stays the same in both themes */
 
 /* Animation */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeInUp {
