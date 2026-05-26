@@ -9,7 +9,13 @@ export const metadata: Metadata = {
   title: 'Kennis Wiser Consulting | Strategic Advisory for Growth',
   description: 'Strategic advisory for PE funds, VC funds, operating companies, and growth-stage businesses across technology, real estate, and infrastructure.',
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.png', sizes: 'any', type: 'image/png' },
+      { url: '/favicon-64x64.png', sizes: '64x64', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'Kennis Wiser Consulting',
@@ -26,7 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/favicon.png" sizes="any" type="image/png" />
+        <link rel="icon" href="/favicon-64x64.png" sizes="64x64" type="image/png" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
       </head>
       <body className="bg-gradient-to-b from-primary-900 via-dark to-primary-900 text-gray-100">
         <Navbar />
