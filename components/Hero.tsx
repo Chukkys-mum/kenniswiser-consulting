@@ -32,12 +32,12 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-          <button className="btn-primary">
+          <a href="/about/our-approach" className="btn-primary">
             Explore Our Approach →
-          </button>
-          <button className="btn-secondary">
+          </a>
+          <a href="/contact" className="btn-secondary">
             Schedule a Consultation
-          </button>
+          </a>
         </div>
 
         {/* Scroll indicator */}

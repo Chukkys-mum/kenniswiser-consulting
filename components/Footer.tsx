@@ -1,67 +1,122 @@
-'use client';
-
 import Link from 'next/link';
 
-export default function Footer() {
-  const currentYear = new Date().getFullYear();
+const footerColumns = [
+  {
+    title: 'About',
+    links: [
+      { label: 'Who We Are', href: '/about/who-we-are' },
+      { label: 'Firm Overview', href: '/about/firm-overview' },
+      { label: 'Our Approach', href: '/about/our-approach' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Contact', href: '/contact' },
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      { label: 'Strategy', href: '/strategy' },
+      { label: 'Due Diligence', href: '/strategy#due-diligence' },
+      { label: 'Fund Positioning', href: '/strategy#fund-positioning' },
+      { label: 'Operational Excellence', href: '/strategy#operational-excellence' },
+      { label: 'M&A Advisory', href: '/strategy#ma' },
+    ],
+  },
+  {
+    title: 'Sectors',
+    links: [
+      { label: 'Technology', href: '/strategy#sectors-technology' },
+      { label: 'Real Estate', href: '/strategy#sectors-real-estate' },
+      { label: 'Infrastructure', href: '/strategy#sectors-infrastructure' },
+      { label: 'Financial Services', href: '/strategy#sectors-financial-services' },
+      { label: 'Healthcare', href: '/strategy#sectors-healthcare' },
+    ],
+  },
+];
 
+const legalLinks = [
+  { label: 'Terms of Use', href: '/legal/terms-of-use' },
+  { label: 'Privacy Policy', href: '/legal/privacy-policy' },
+  { label: 'Cookie Policy', href: '/legal/cookie-policy' },
+  { label: 'Disclaimers', href: '/legal/disclaimers' },
+  { label: 'Regulatory', href: '/legal/regulatory' },
+];
+
+export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-gradient-to-t from-dark to-primary-900/50 border-t border-primary-700/30">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
-          <div>
-            <h3 className="font-bold text-lg text-white mb-4">Kennis Wiser</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Strategic advisory for growth capital. Partners to PE funds, VCs, and operating companies.
+    <footer className="bg-primary-900 border-t border-white/[0.06]">
+      {/* Top: brand + columns */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Brand block */}
+          <div className="md:col-span-4">
+            <Link href="/" className="inline-flex items-center gap-3 group mb-4">
+              <img
+                src="/logos/k-mark-gradient.png"
+                alt="Kennis Wiser Consulting"
+                width={40}
+                height={40}
+                className="w-10 h-10 object-contain"
+              />
+              <span className="font-bold text-lg text-white tracking-wide">
+                Kennis Wiser Consulting
+              </span>
+            </Link>
+            <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
+              Strategic counsel for growth capital. We partner with PE funds, VC funds,
+              and operating companies to navigate complex challenges in technology, real
+              estate, and infrastructure investments.
+            </p>
+            <p className="text-xs uppercase tracking-widest text-accent font-semibold mt-6">
+              Strategy Over Noise.
             </p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Services</h4>
-            <ul className="space-y-2">
-              <li><Link href="#services" className="text-gray-400 hover:text-accent transition-colors text-sm">Due Diligence</Link></li>
-              <li><Link href="#services" className="text-gray-400 hover:text-accent transition-colors text-sm">Fund Strategy</Link></li>
-              <li><Link href="#services" className="text-gray-400 hover:text-accent transition-colors text-sm">Operational Excellence</Link></li>
-              <li><Link href="#services" className="text-gray-400 hover:text-accent transition-colors text-sm">M&A Advisory</Link></li>
-            </ul>
-          </div>
-
-          {/* Sectors */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Sectors</h4>
-            <ul className="space-y-2">
-              <li><Link href="#sectors" className="text-gray-400 hover:text-accent transition-colors text-sm">Technology</Link></li>
-              <li><Link href="#sectors" className="text-gray-400 hover:text-accent transition-colors text-sm">Real Estate</Link></li>
-              <li><Link href="#sectors" className="text-gray-400 hover:text-accent transition-colors text-sm">Infrastructure</Link></li>
-              <li><Link href="#sectors" className="text-gray-400 hover:text-accent transition-colors text-sm">Financial Services</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-white mb-4">Connect</h4>
-            <ul className="space-y-2">
-              <li><a href="mailto:dean.bryan@kenniscapital.com" className="text-gray-400 hover:text-accent transition-colors text-sm">Email</a></li>
-              <li><a href="tel:+441234567890" className="text-gray-400 hover:text-accent transition-colors text-sm">Phone</a></li>
-              <li><Link href="/" className="text-gray-400 hover:text-accent transition-colors text-sm">LinkedIn</Link></li>
-              <li className="text-gray-500 text-sm">London, UK</li>
-            </ul>
+          {/* Link columns */}
+          <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
+            {footerColumns.map((col) => (
+              <div key={col.title}>
+                <h4 className="text-[10px] font-bold text-white/40 uppercase tracking-[2px] mb-4">
+                  {col.title}
+                </h4>
+                <ul className="space-y-2">
+                  {col.links.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-300 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Divider */}
-        <div className="border-t border-primary-700/30 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} Kennis Wiser Consulting. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 mt-4 md:mt-0">
-              <Link href="/" className="text-gray-500 hover:text-accent transition-colors text-sm">Privacy Policy</Link>
-              <Link href="/" className="text-gray-500 hover:text-accent transition-colors text-sm">Terms of Service</Link>
-            </div>
+      {/* Bottom: legal strip (mirrors Kennis Capital's footer pattern) */}
+      <div className="border-t border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-6 flex-wrap justify-center">
+            <span className="text-[10px] font-bold uppercase tracking-[2px] text-accent">
+              KORA
+            </span>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
+          <p className="text-xs text-gray-500">
+            © {year} Kennis Wiser Consulting Ltd. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
