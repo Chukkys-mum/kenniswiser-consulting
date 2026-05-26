@@ -9,16 +9,17 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-r from-primary-900/95 to-dark/95 backdrop-blur-md border-b border-primary-700/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — uses the official Kennis Wiser Consulting brand mark (white variant
+            from Marketing/Logo/KENNIS WISER CONSULTING/Png/LOGO-04.png) for dark navbar. */}
         <Link href="/" className="flex items-center gap-3 group">
           <img
-            src="/logos/kwis-logo-white.svg"
+            src="/logos/kwc-logo-white.png"
             alt="Kennis Wiser Consulting"
             width={40}
             height={40}
             className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
           />
-          <span className="hidden sm:block font-bold text-lg text-white">Kennis Wiser</span>
+          <span className="hidden sm:block font-bold text-lg text-white">Kennis Wiser Consulting</span>
         </Link>
 
         {/* Desktop Navigation */}
