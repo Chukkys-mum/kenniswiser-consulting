@@ -52,7 +52,10 @@ export default function RootLayout({
         <Footer />
         <ScrollToTop />
         <KoraWidget
-          projectKey="kora_pk_kenniswiser_consulting"
+          projectKey={
+            process.env.NEXT_PUBLIC_KORA_PROJECT_KEY ??
+            'kora_pk_kenniswiser_consulting'
+          }
           primaryColor="#7c3aed"
           title="KORA"
           greeting="Hi! I'm KORA. Ask me about Kennis Wiser Consulting — our advisory services, sectors, or how we can help your fund or operating company."

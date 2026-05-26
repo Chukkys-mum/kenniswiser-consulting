@@ -16,7 +16,8 @@ interface Message {
   content: string;
 }
 
-const DEFAULT_API = 'https://kora-api-gamma.vercel.app';
+const DEFAULT_API =
+  process.env.NEXT_PUBLIC_KORA_API_BASE ?? 'https://kora-api-gamma.vercel.app';
 
 export default function KoraWidget({
   projectKey,
