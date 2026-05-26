@@ -11,9 +11,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-600 to-accent rounded-lg flex items-center justify-center font-bold text-white group-hover:shadow-lg group-hover:shadow-accent/30 transition-shadow">
-            W
-          </div>
+          <img
+            src="/logos/kwis-logo-white.svg"
+            alt="Kennis Wiser Consulting"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain group-hover:scale-105 transition-transform"
+          />
           <span className="hidden sm:block font-bold text-lg text-white">Kennis Wiser</span>
         </Link>
 
