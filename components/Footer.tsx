@@ -37,8 +37,6 @@ const legalLinks = [
   { label: 'Terms of Use', href: '/legal/terms-of-use' },
   { label: 'Privacy Policy', href: '/legal/privacy-policy' },
   { label: 'Cookie Policy', href: '/legal/cookie-policy' },
-  { label: 'Disclaimers', href: '/legal/disclaimers' },
-  { label: 'Regulatory', href: '/legal/regulatory' },
 ];
 
 export default function Footer() {
