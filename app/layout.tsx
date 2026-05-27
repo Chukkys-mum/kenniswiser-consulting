@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import KoraWidget from '@/components/KoraWidget';
+import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'Kennis Wiser Consulting | Strategic Advisory for Growth',
@@ -37,10 +38,12 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
-        {/* Set theme before paint to avoid FOUC */}
+        {/* Resolve theme before paint to avoid FOUC.
+            Choice = 'dark' | 'light' | 'system' (stored). Resolved data-theme is
+            always 'dark' or 'light'. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('kw-theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()`,
+            __html: `(function(){try{var c=localStorage.getItem('kw-theme')||'dark';var r=c==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):c;document.documentElement.setAttribute('data-theme',r);document.documentElement.setAttribute('data-theme-choice',c);}catch(e){document.documentElement.setAttribute('data-theme','dark');document.documentElement.setAttribute('data-theme-choice','dark');}})()`,
           }}
         />
       </head>
@@ -60,6 +63,7 @@ export default function RootLayout({
           title="KORA"
           greeting="Hi! I'm KORA. Ask me about Kennis Wiser Consulting — our advisory services, sectors, or how we can help your fund or operating company."
         />
+        <CookieConsent />
       </body>
     </html>
   );
