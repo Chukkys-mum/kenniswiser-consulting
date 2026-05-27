@@ -1,88 +1,95 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import PageSection from '@/components/PageSection';
 
 export const metadata: Metadata = {
-  title: 'Strategy & Services | Kennis Wiser Consulting',
+  title: 'Strategy & Services',
   description:
-    'Services across due diligence, fund positioning, operational excellence, market analysis, exit strategy, and regulatory advisory. Sectors include technology, real estate, infrastructure, financial services, and healthcare.',
+    'Six service lines across six sectors. Every engagement is partner-led, fixed-fee or retainer, and ends with a decision — not a deck.',
 };
 
-const services = [
+interface Tile {
+  slug: string;
+  title: string;
+  description: string;
+}
+
+const services: Tile[] = [
   {
-    id: 'due-diligence',
+    slug: 'due-diligence',
     title: 'Due Diligence & Advisory',
     description:
-      'Comprehensive commercial, operational, and financial diligence for PE and VC investors. We stress-test theses against sector realities, identify operational red flags before close, and produce IC-ready output.',
+      'Commercial, operational, and financial diligence for PE / VC investors. IC-ready output, primary-research evidence base.',
   },
   {
-    id: 'fund-positioning',
+    slug: 'fund-positioning',
     title: 'Fund Strategy & Positioning',
     description:
-      'Fund mandate design, sector positioning, LP narrative, and competitive differentiation. From first-time funds raising their debut vehicle to established GPs evolving their thesis between vintages.',
+      'Mandate design, sector positioning, LP narrative, competitive differentiation. First-time funds and established GPs alike.',
   },
   {
-    id: 'operational-excellence',
+    slug: 'operational-excellence',
     title: 'Operational Excellence',
     description:
-      'Portfolio company unit-economics diagnostic, operational scaling, technology infrastructure decisions. Hands-on engagements — we build the model, run the data review, and stay in the operating cadence.',
+      'Unit-economics diagnostic, scaling, technology decisions. Hands-on, in the operating cadence — not just diagnostic.',
   },
   {
-    id: 'market-analysis',
+    slug: 'market-analysis',
     title: 'Market & Competitive Analysis',
     description:
-      'Market-entry feasibility, competitive landscape mapping, customer-segment economics. Evidence-based, primary-research-led, calibrated to the decision the client actually needs to make.',
+      'Market-entry feasibility, competitive landscape, customer-segment economics. Bottom-up, primary-research-led, decision-calibrated.',
   },
   {
-    id: 'ma',
+    slug: 'ma-advisory',
     title: 'Exit Strategy & M&A',
     description:
-      'Exit readiness, vendor-side commercial diligence, value-creation evidence packs, strategic-buyer mapping, and post-merger integration planning. We work alongside bankers and lawyers, not in competition with them.',
+      'Exit readiness, vendor commercial diligence, strategic-buyer mapping, 100-day integration. Upstream of bankers and counsel.',
   },
   {
-    id: 'regulatory',
+    slug: 'regulatory',
     title: 'Regulatory & Governance',
     description:
-      'Regulatory-environment assessment for new market entry, governance-framework design for first-time funds, and compliance-posture review for boards preparing for institutional capital.',
+      'Perimeter mapping, governance design, institutional-capital readiness. Translates legal advice into operating decisions.',
   },
 ];
 
-const sectors = [
+const sectors: Tile[] = [
   {
-    id: 'sectors-technology',
+    slug: 'technology',
     title: 'Technology & Software',
     description:
-      'B2B SaaS, vertical AI, developer infrastructure, data platforms. Both pure-play software and tech-enabled services.',
+      'B2B SaaS, vertical AI, developer infrastructure, data platforms. Pure-play software + tech-enabled services.',
   },
   {
-    id: 'sectors-real-estate',
+    slug: 'real-estate',
     title: 'Real Estate & PropTech',
     description:
-      'Residential, build-to-rent, affordable housing, commercial. Property-management technology and PropTech platforms.',
+      'Residential, build-to-rent, affordable housing, commercial. Property-management tech and PropTech platforms.',
   },
   {
-    id: 'sectors-infrastructure',
+    slug: 'infrastructure',
     title: 'Infrastructure & Energy',
     description:
-      'Distributed energy, decarbonisation infrastructure, carbon markets, digital infrastructure (data centres, fibre, towers).',
+      'Distributed energy, decarbonisation infrastructure, carbon markets, data centres, fibre, towers.',
   },
   {
-    id: 'sectors-financial-services',
+    slug: 'financial-services',
     title: 'Financial Services',
     description:
-      'Wealth-tech, embedded finance, regtech, insurance, payments. Both growth-stage operators and the funds that back them.',
+      'Wealth-tech, embedded finance, regtech, insurance, payments. Growth-stage operators + the funds that back them.',
   },
   {
-    id: 'sectors-healthcare',
+    slug: 'healthcare',
     title: 'Healthcare & Life Sciences',
     description:
       'Healthcare services, digital health, healthtech platforms, life-sciences services. Tech-enabled clinical operations.',
   },
   {
-    id: 'sectors-business-services',
+    slug: 'business-services',
     title: 'Business Services',
     description:
-      'Tech-enabled B2B services, professional services platforms, outsourcing, and the M&A roll-up theses that consolidate them.',
+      'Tech-enabled B2B services, professional services platforms, outsourcing, and M&A roll-up theses that consolidate them.',
   },
 ];
 
@@ -104,14 +111,29 @@ export default function StrategyPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((s) => (
-            <div
-              key={s.id}
-              id={s.id}
-              className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 hover:border-accent/30 transition-colors scroll-mt-24"
+            <Link
+              key={s.slug}
+              href={`/strategy/${s.slug}`}
+              className="group block rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 hover:border-accent/30 transition-colors no-underline"
             >
-              <h3 className="text-xl font-semibold text-white mb-3">{s.title}</h3>
+              <div className="flex items-start justify-between gap-4 mb-3">
+                <h3 className="text-xl font-semibold text-white group-hover:text-accent transition-colors">
+                  {s.title}
+                </h3>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-gray-500 group-hover:text-accent transition-colors shrink-0 mt-1"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
               <p className="text-gray-400 leading-relaxed">{s.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </PageSection>
@@ -125,14 +147,29 @@ export default function StrategyPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sectors.map((s) => (
-            <div
-              key={s.id}
-              id={s.id}
-              className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 hover:border-accent/30 transition-colors scroll-mt-24"
+            <Link
+              key={s.slug}
+              href={`/sectors/${s.slug}`}
+              className="group block rounded-xl border border-white/[0.08] bg-white/[0.02] p-6 hover:border-accent/30 transition-colors no-underline"
             >
-              <h3 className="text-lg font-semibold text-white mb-3">{s.title}</h3>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h3 className="text-lg font-semibold text-white group-hover:text-accent transition-colors">
+                  {s.title}
+                </h3>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-gray-500 group-hover:text-accent transition-colors shrink-0 mt-0.5"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
               <p className="text-gray-400 leading-relaxed text-sm">{s.description}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </PageSection>
@@ -147,12 +184,12 @@ export default function StrategyPage() {
             no theatre — we&apos;ll tell you honestly if we&apos;re the right firm.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a href="/contact" className="btn-primary">
+            <Link href="/contact" className="btn-primary">
               Start a Conversation
-            </a>
-            <a href="/about/our-approach" className="btn-secondary">
+            </Link>
+            <Link href="/about/our-approach" className="btn-secondary">
               See How We Work
-            </a>
+            </Link>
           </div>
         </div>
       </PageSection>
