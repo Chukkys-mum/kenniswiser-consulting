@@ -29,6 +29,7 @@ const aboutGroup: NavGroup = {
 
 const simpleLinks = [
   { label: 'Strategy', href: '/strategy' },
+  { label: 'Insights', href: '/insights' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ];

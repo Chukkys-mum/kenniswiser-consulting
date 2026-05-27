@@ -14,21 +14,23 @@ const footerColumns = [
   {
     title: 'Services',
     links: [
-      { label: 'Strategy', href: '/strategy' },
-      { label: 'Due Diligence', href: '/strategy#due-diligence' },
-      { label: 'Fund Positioning', href: '/strategy#fund-positioning' },
-      { label: 'Operational Excellence', href: '/strategy#operational-excellence' },
-      { label: 'M&A Advisory', href: '/strategy#ma' },
+      { label: 'All Services', href: '/strategy' },
+      { label: 'Due Diligence', href: '/strategy/due-diligence' },
+      { label: 'Fund Positioning', href: '/strategy/fund-positioning' },
+      { label: 'Operational Excellence', href: '/strategy/operational-excellence' },
+      { label: 'M&A Advisory', href: '/strategy/ma-advisory' },
+      { label: 'Insights', href: '/insights' },
     ],
   },
   {
     title: 'Sectors',
     links: [
-      { label: 'Technology', href: '/strategy#sectors-technology' },
-      { label: 'Real Estate', href: '/strategy#sectors-real-estate' },
-      { label: 'Infrastructure', href: '/strategy#sectors-infrastructure' },
-      { label: 'Financial Services', href: '/strategy#sectors-financial-services' },
-      { label: 'Healthcare', href: '/strategy#sectors-healthcare' },
+      { label: 'Technology', href: '/sectors/technology' },
+      { label: 'Real Estate', href: '/sectors/real-estate' },
+      { label: 'Infrastructure', href: '/sectors/infrastructure' },
+      { label: 'Financial Services', href: '/sectors/financial-services' },
+      { label: 'Healthcare', href: '/sectors/healthcare' },
+      { label: 'Business Services', href: '/sectors/business-services' },
     ],
   },
 ];
