@@ -3,28 +3,28 @@
 export default function Sectors() {
   const sectors = [
     {
-      name: 'Technology & Software',
-      description: 'SaaS, enterprise solutions, fintech, and platform businesses scaling globally.',
+      name: 'Banking & Financial Services',
+      description: 'Enterprise transformation at ING and BNP Paribas. Fund structuring, wealth, and regulated-business operating models.',
     },
     {
-      name: 'Real Estate & PropTech',
-      description: 'Commercial real estate, residential development, and property technology innovations.',
+      name: 'Telecoms & Media',
+      description: 'Agile transformation at Vodafone. Scaling delivery and ways of working across large, distributed engineering organisations.',
     },
     {
-      name: 'Infrastructure & Energy',
-      description: 'Renewable energy, infrastructure assets, and sustainable utilities.',
+      name: 'Energy & Utilities',
+      description: 'Enterprise agile coaching at BP. Distributed energy and carbon-platform builds across the Kennis portfolio.',
     },
     {
-      name: 'Financial Services',
-      description: 'Fintech platforms, wealth management, and alternative investment vehicles.',
+      name: 'Real Estate & Housing',
+      description: 'Structured a real-asset income fund and the operating company that delivers affordable, resilient housing at scale.',
     },
     {
-      name: 'Healthcare & Life Sciences',
-      description: 'Healthtech, medical devices, and healthcare services.',
+      name: 'Technology & Platforms',
+      description: 'Built the Septimius multi-vertical platform on Kennis OS — fund, property, energy, and AI products in one ecosystem.',
     },
     {
-      name: 'Business Services',
-      description: 'Staffing, consulting, and professional services platforms.',
+      name: 'Public & Social Impact',
+      description: 'Strategic board advisory in the charity sector. Transformation for not-for-profits and public-sector organisations.',
     },
   ];
 
@@ -33,10 +33,10 @@ export default function Sectors() {
       <div className="space-y-12">
         {/* Header */}
         <div>
-          <p className="text-accent font-semibold text-sm uppercase tracking-wide mb-4">Sectors</p>
-          <h2 className="section-title">Where We Create Impact</h2>
+          <p className="text-accent font-semibold text-sm uppercase tracking-wide mb-4">Industries</p>
+          <h2 className="section-title">Where We&apos;ve Done the Work</h2>
           <p className="section-subtitle">
-            Deep expertise across growth capital destinations, from emerging technologies to foundational infrastructure.
+            Real industry experience — from enterprise transformation at global banks, telcos, and energy majors, to building a fund and technology group of our own.
           </p>
         </div>
 

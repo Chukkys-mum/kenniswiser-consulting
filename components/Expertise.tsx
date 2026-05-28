@@ -3,37 +3,46 @@
 export default function Expertise() {
   const expertise = [
     {
-      area: 'Capital Markets',
+      area: 'Transformation at scale',
       points: [
-        'Fund structuring and positioning',
-        'LP relations and syndication',
-        'Portfolio construction strategy',
+        'Enterprise agile transformation (BP, Vodafone, ING, BNP Paribas)',
+        'Scaling frameworks: SAFe, LeSS, Nexus, Spotify, bespoke',
+        'Operating-model and ways-of-working redesign',
       ],
     },
     {
-      area: 'Strategic Planning',
+      area: 'Platform & engineering',
       points: [
-        'Competitive landscape analysis',
-        'Market entry strategies',
-        'Growth roadmap development',
+        'Built the Septimius ecosystem: 24 modules, 600+ services',
+        'Cloud architecture, DevOps, and delivery machinery',
+        'Greenfield product and legacy replatforming',
       ],
     },
     {
-      area: 'Operations & Scaling',
+      area: 'Data, ML & AI',
       points: [
-        'Unit economics optimization',
-        'Operational scaling playbooks',
-        'Technology infrastructure planning',
+        'AI-native platforms — assistant layer + automation backbone in production',
+        'Data foundations, machine learning, applied AI with evaluation harnesses',
+        'Guardrails, monitoring, and human-in-the-loop design',
       ],
     },
     {
-      area: 'M&A & Value Creation',
+      area: 'Venture & fund building',
       points: [
-        'Deal sourcing and evaluation',
-        'Value creation planning',
-        'Exit strategy and execution',
+        'Structured a Jersey fund GP and its debut real-asset fund',
+        'Stood up the operating company that delivers the assets',
+        'Investor-readiness, governance, and reporting from the inside',
       ],
     },
+  ];
+
+  // Defensible proof points — drawn from the platform we actually built,
+  // not unverifiable AUM / transaction claims.
+  const stats = [
+    { value: '24', label: 'Platform modules built' },
+    { value: '600+', label: 'Services shipped' },
+    { value: '4', label: 'Group entities structured' },
+    { value: 'AI-native', label: 'From the schema up' },
   ];
 
   return (
@@ -44,7 +53,7 @@ export default function Expertise() {
           <p className="text-accent font-semibold text-sm uppercase tracking-wide mb-4">Expertise</p>
           <h2 className="section-title">Proven Capabilities</h2>
           <p className="section-subtitle">
-            Grounded in real transaction experience and operational leadership across growth capital.
+            We built our own vertically-integrated group — fund, operating company, and AI-native platform. That is the proof behind the advice.
           </p>
         </div>
 
@@ -65,24 +74,14 @@ export default function Expertise() {
           ))}
         </div>
 
-        {/* Stats Section */}
+        {/* Stats Section — defensible proof points from the platform we built */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-primary-700/30">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-accent mb-2">$2B+</div>
-            <p className="text-sm text-gray-400">Capital Managed</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-accent mb-2">15+</div>
-            <p className="text-sm text-gray-400">Sectors Covered</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-accent mb-2">50+</div>
-            <p className="text-sm text-gray-400">Completed Transactions</p>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-accent mb-2">20+</div>
-            <p className="text-sm text-gray-400">Years Combined Experience</p>
-          </div>
+          {stats.map((s, idx) => (
+            <div key={idx} className="text-center">
+              <div className="text-4xl font-bold text-accent mb-2">{s.value}</div>
+              <p className="text-sm text-gray-400">{s.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

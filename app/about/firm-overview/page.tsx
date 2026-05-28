@@ -8,33 +8,35 @@ export const metadata: Metadata = {
     'Kennis Wiser Consulting — firm structure, governance, regulatory posture, and engagement model. The institutional context behind the work.',
 };
 
+// Defensible proof points from the platform we actually built — not
+// unverifiable AUM / transaction claims.
 const stats = [
-  { label: 'Capital Advised', value: '$2B+' },
-  { label: 'Sectors', value: '15+' },
-  { label: 'Transactions', value: '50+' },
-  { label: 'Years (Combined)', value: '20+' },
+  { label: 'Platform modules built', value: '24' },
+  { label: 'Services shipped', value: '600+' },
+  { label: 'Group entities structured', value: '4' },
+  { label: 'Enterprise transformations led', value: 'BP · Vodafone · ING · BNP' },
 ];
 
 const pillars = [
   {
     title: 'Group Heritage',
     description:
-      'Kennis Wiser Consulting is the advisory arm of the broader Kennis ecosystem, which spans capital allocation (Kennis Capital), platform technology (Kennis OS), and operating businesses across real estate, energy, and digital infrastructure. The advisory practice is operated as an independent entity to preserve client confidentiality and avoid conflicts of interest.',
+      'Kennis Wiser Consulting is the advisory practice at the centre of the Kennis and Septimius group. We structured the fund platform (a Jersey GP and its debut real-asset income fund), stood up the operating company that delivers the underlying assets, and architected the Septimius technology ecosystem on Kennis OS. The consulting practice runs as an independent entity to preserve client confidentiality and avoid conflicts of interest.',
   },
   {
-    title: 'Governance',
+    title: 'How we engage',
     description:
-      'Engagements run under a formal engagement letter with defined scope, deliverables, and exit triggers. Conflicts checks are performed before every mandate. Sensitive material is handled under NDA on dedicated infrastructure with audit trails. We do not invest alongside our advisory clients without explicit, written, prior consent.',
+      'Engagements run under a formal engagement letter with defined scope, deliverables, and exit triggers. We work as an embedded partner, not a fly-in/fly-out advisor — coaching ourselves out of a job so the capability stays with your people. Sensitive material is handled under NDA on dedicated infrastructure with audit trails.',
   },
   {
-    title: 'Regulatory Posture',
+    title: 'Independence & posture',
     description:
-      'We operate within the UK regulatory perimeter, with appropriate registrations for the markets we advise into. We are not a regulated investment adviser under FCA Part 4A — we provide commercial strategy and operational advisory only, and signpost clients to regulated counterparties for any work that requires it.',
+      'We provide transformation, technology, and operating advisory. We are not a regulated investment adviser, and we signpost clients to regulated counterparties (legal, fund-admin, financial) for any work that requires them. We work upstream of and alongside those advisors — we never impersonate them.',
   },
   {
     title: 'Engagement Models',
     description:
-      'Three engagement shapes: (1) fixed-scope mandates with a defined deliverable, (2) embedded retainers where we operate as a part of the client team for a defined period, (3) advisory board / non-executive director seats for longer-horizon strategic counsel. Pricing is fixed-fee, retainer, or success-linked — agreed upfront, never time-and-materials.',
+      'Three shapes: (1) fixed-scope mandates with a defined deliverable; (2) embedded retainers where we operate as part of the client team for a defined period; (3) advisory-board / non-executive seats for longer-horizon counsel. Pricing is fixed-fee, retainer, or outcome-linked — agreed upfront, never time-and-materials.',
   },
 ];
 
@@ -93,31 +95,31 @@ export default function FirmOverviewPage() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">Capital Markets</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">Transformation & Agile</h3>
             <p className="text-gray-400 leading-relaxed">
-              Fund structuring, LP relations, portfolio construction. Equity stories
-              for capital raises. Investor reporting and IR positioning.
+              Enterprise agile transformation, scaling frameworks, operating-model and
+              ways-of-working redesign. Led at BP, Vodafone, ING, and BNP Paribas.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">Strategic Planning</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">Digital, Data & AI</h3>
             <p className="text-gray-400 leading-relaxed">
-              Competitive analysis, market-entry strategy, growth roadmap, geographic
-              expansion. Tested against the operational realities our group runs.
+              Platform and product engineering, cloud and DevOps, data foundations,
+              machine learning, and production AI — built into the Septimius ecosystem.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">Operations & Scaling</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">Venture & Fund Building</h3>
             <p className="text-gray-400 leading-relaxed">
-              Unit-economics diagnostic, operational scaling, technology infrastructure
-              decisions. Hands-on, not just diagnostic.
+              Standing up ventures, operating companies, and fund vehicles. We structured
+              a Jersey fund GP, its debut fund, and the operating company beneath it.
             </p>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-3">M&A & Value Creation</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">Leadership & Coaching</h3>
             <p className="text-gray-400 leading-relaxed">
-              Deal sourcing, commercial due diligence, value-creation planning,
-              post-merger integration, exit-strategy preparation.
+              Executive and agile-leadership coaching, practitioner development, and
+              inclusive-leadership programmes that make the capability stick.
             </p>
           </div>
         </div>
