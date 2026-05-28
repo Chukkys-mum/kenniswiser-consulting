@@ -21,14 +21,14 @@ interface NavGroup {
 const aboutGroup: NavGroup = {
   label: 'About',
   links: [
-    { label: 'Who We Are', href: '/about/who-we-are', desc: 'Mission, philosophy, and what we stand for' },
-    { label: 'Firm Overview', href: '/about/firm-overview', desc: 'Structure, regulation, and how we engage' },
+    { label: 'Who We Are', href: '/about/who-we-are', desc: 'Our founder, our story, and the group we built' },
+    { label: 'Firm Overview', href: '/about/firm-overview', desc: 'Structure, services, and how we engage' },
     { label: 'Our Approach', href: '/about/our-approach', desc: 'How we work alongside our clients' },
   ],
 };
 
 const simpleLinks = [
-  { label: 'Strategy', href: '/strategy' },
+  { label: 'Services', href: '/services' },
   { label: 'Insights', href: '/insights' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },

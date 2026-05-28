@@ -15,12 +15,12 @@ export default function Hero() {
 
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-          Strategic Counsel for <span className="text-gradient">Growth Capital.</span>
+          We build and transform <span className="text-gradient">ventures, platforms, and ways of working.</span>
         </h1>
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          We partner with PE funds, VC funds, and operating companies to navigate complex challenges in technology, real estate, and infrastructure investments.
+          Enterprise transformation, agile delivery, and data &amp; AI — for funds, operating companies, and enterprises. And we proved it by building our own group: a fund, an operating company, and an AI-native platform.
         </p>
 
         {/* Tagline */}

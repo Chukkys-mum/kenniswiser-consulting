@@ -23,21 +23,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/about/who-we-are', changeFrequency: 'monthly', priority: 0.8 },
     { path: '/about/firm-overview', changeFrequency: 'monthly', priority: 0.8 },
     { path: '/about/our-approach', changeFrequency: 'monthly', priority: 0.8 },
-    // Strategy index + per-service
-    { path: '/strategy', changeFrequency: 'monthly', priority: 0.9 },
-    { path: '/strategy/due-diligence', changeFrequency: 'monthly', priority: 0.85 },
-    { path: '/strategy/fund-positioning', changeFrequency: 'monthly', priority: 0.85 },
-    { path: '/strategy/operational-excellence', changeFrequency: 'monthly', priority: 0.85 },
-    { path: '/strategy/market-analysis', changeFrequency: 'monthly', priority: 0.85 },
-    { path: '/strategy/ma-advisory', changeFrequency: 'monthly', priority: 0.85 },
-    { path: '/strategy/regulatory', changeFrequency: 'monthly', priority: 0.85 },
-    // Sectors
-    { path: '/sectors/technology', changeFrequency: 'monthly', priority: 0.8 },
-    { path: '/sectors/real-estate', changeFrequency: 'monthly', priority: 0.8 },
-    { path: '/sectors/infrastructure', changeFrequency: 'monthly', priority: 0.8 },
-    { path: '/sectors/financial-services', changeFrequency: 'monthly', priority: 0.8 },
-    { path: '/sectors/healthcare', changeFrequency: 'monthly', priority: 0.8 },
-    { path: '/sectors/business-services', changeFrequency: 'monthly', priority: 0.8 },
+    // Services index + per-service
+    { path: '/services', changeFrequency: 'monthly', priority: 0.9 },
+    { path: '/services/transformation', changeFrequency: 'monthly', priority: 0.85 },
+    { path: '/services/digital-platform', changeFrequency: 'monthly', priority: 0.85 },
+    { path: '/services/data-ml-ai', changeFrequency: 'monthly', priority: 0.85 },
+    { path: '/services/venture-building', changeFrequency: 'monthly', priority: 0.85 },
+    { path: '/services/operating-model', changeFrequency: 'monthly', priority: 0.85 },
+    { path: '/services/leadership-coaching', changeFrequency: 'monthly', priority: 0.85 },
     // Insights index + posts
     { path: '/insights', changeFrequency: 'weekly', priority: 0.85 },
     // Other
